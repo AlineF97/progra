@@ -6,12 +6,12 @@ import { DataBaseService } from '../servicios/data-base.service';
   providedIn: 'root'
 })
 export class AsistenciaService {
-
+  
 
   public registroAsistencia : Asistencia [] = [];
   asistencia: Asistencia;
   db: DataBaseService;
-
+  
   constructor(db :DataBaseService) {
     this.db=db;
     alert('xxxx-0 ');

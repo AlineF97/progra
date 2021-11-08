@@ -53,11 +53,12 @@ export class DataBaseService {
          }
          crearTablas() {
            // Obtener el archivo que contiene las sentencias SQL
+           
          this.http.get('../assets/db/CreateDatabase.sql',{responseType: 'text'})
              .subscribe(sql => {
                // Ejecutar las sentencias SQL del archivo
                this.sqlPorter.importSqlToDb(this.dataBase, sql)
-                 .then(async _ => {
+                 .then(async (_) => {
                    // Informar que la base de datos está lista
                    alert('xxxx-3 ');
                     this.cargarAsistencia();
@@ -81,7 +82,7 @@ export class DataBaseService {
           }  
 
           cargarAsistencia(){
-            return this.dataBase.executeSql('SELECT * FROM contacto', []).then(data => {
+            return this.dataBase.executeSql('SELECT * FROM asistencia', []).then(data => {
               let asistencias: Asistencia[] = [];
         
               if (data.rows.length > 0) {
@@ -95,7 +96,7 @@ export class DataBaseService {
           }
 
           getAsistencia(id): Promise<Asistencia> {
-            return this.dataBase.executeSql('SELECT * FROM Contacto WHERE id = ?', [id]).then(resSelect => { 
+            return this.dataBase.executeSql('SELECT * FROM asistencia WHERE id = ?', [id]).then(resSelect => { 
                 return {
                       id: resSelect.rows.item(0).id,
                       fecha: resSelect.rows.item(0).fecha,
@@ -108,7 +109,7 @@ export class DataBaseService {
 
             addAsistencia(fecha, asignatura,profesor,hora) {
               let data = [fecha, asignatura,profesor,hora];
-              return this.dataBase.executeSql('INSERT INTO contacto (fecha, asignatura,profesor,hora) VALUES (?, ?, ? ,? ,?)', data)
+              return this.dataBase.executeSql('INSERT INTO asistencia (fecha, asignatura,profesor,hora) VALUES (?, ?, ? ,?)', data)
               .then(res => {
                this.cargarAsistencia();
               });
@@ -116,7 +117,7 @@ export class DataBaseService {
             updateAsistencia(fecha, asignatura,profesor,hora,id) {
               alert('Actualiza '+id);
               let data = [fecha, asignatura,profesor,hora,id];
-              return this.dataBase.executeSql('UPDATE contacto SET fecha=?, asignatura=?, profesor=?, hora=? WHERE id=?', data)
+              return this.dataBase.executeSql('UPDATE asistencia SET fecha=?, asignatura=?, profesor=?, hora=? WHERE id=?', data)
               .then(res => {
                this.cargarAsistencia();
               });
@@ -125,7 +126,7 @@ export class DataBaseService {
            deleteAsistencia(id) {
               alert('Delete '+id);
               let data = [ id];
-              return this.dataBase.executeSql('DELETE FROM contacto  WHERE id=?', data)
+              return this.dataBase.executeSql('DELETE FROM asistencia  WHERE id=?', data)
               .then(res => {
                this.cargarAsistencia();
               });
