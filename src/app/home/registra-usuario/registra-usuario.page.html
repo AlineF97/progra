@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref='/login'></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class='card'>
+
+    <ion-card-header>
+      <ion-title>Ingresar datos de usuario</ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="full">
+        <ion-label position="floating">Nombre de usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.user"></ion-input>
+      </ion-item> 
+     <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.password"></ion-input>
+    </ion-item>
+   <ion-item lines="full">
+        <ion-label position="floating">Pregunta de seguridad</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.pregunta"></ion-input>
+   </ion-item>  
+   <ion-item lines="full">
+    <ion-label position="floating" >Respuesta</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.respuesta"></ion-input>
+  </ion-item>  
+   </ion-card-content> 
+    <ion-row>
+      <ion-col>
+        <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
+        <ion-button expand="block" (click)="registrarUsuario()">Registrar Usuario</ion-button>
+      </ion-col>
+    </ion-row>
+  
+</ion-content>

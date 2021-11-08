@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de asistencia</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref='/inicio'></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]='true'>
+  <ion-list *ngFor="let asistencia of registroAsistencia">
+    <ion-item [routerLink]="['./',asistencia.id]">
+    <ion-label>Fecha: {{asistencia.fecha}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
+  <ion-col>
+    <ion-button expand="full"  routerLink="../asistencias/registro-asistencia" routerDirection="forward">Registrar Asistencia</ion-button>
+  </ion-col>
+
+</ion-content>

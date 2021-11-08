@@ -1,0 +1,36 @@
+<ion-header>
+   <ion-toolbar>
+    <ion-title>Volver atrás</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref='/home'></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="header">
+    <img src="../assets/img/logo4.png" >
+    
+</div>
+  <ion-card-header>
+    <h1 class="welcome">Bienvenido <b class="username">{{this.user}}</b></h1>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+       <ion-col>
+         <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
+         <ion-button expand= "block" routerLink="../asistencias" routerDirection="forward">Asistencia</ion-button> 
+       </ion-col>
+       <ion-col> 
+        <ion-button expand ="block" routerLink="/home" routerDirection="forward">Cerrar sesión</ion-button> 
+        <!-- crear un boton que va a un link (interno en este caso) redireccionando la pagina-->
+      </ion-col>
+     </ion-row>
+    </ion-grid>
+  </ion-card-content>
+
+
+  
+
+</ion-content>

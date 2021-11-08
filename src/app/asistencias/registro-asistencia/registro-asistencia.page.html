@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registre los datos de la clase</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref='/inicio'></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class='card'> <!--la pagina se divide en tarjetas: encabezado(ion-card-header), titulo(ion-card-title), subtitulo(ion-card-subtitle), contenido(ion-card-content) no es necesario usar todos-->
+
+  <ion-card-header> <!--componente de titulo -->
+    <ion-title>Datos de la clase</ion-title>
+  </ion-card-header>
+  <ion-card-content> <!-- componente contenido de la pagina-->
+    <ion-item lines="full">
+      <ion-label position="floating">Fecha</ion-label>
+      <ion-input type="text" [(ngModel)]="asistencia.fecha"></ion-input>
+    </ion-item> 
+   <ion-item lines="full">
+    <ion-label position="floating">Hora de ingreso</ion-label>
+    <ion-input type="text" [(ngModel)]="asistencia.hora"></ion-input>
+  </ion-item>
+ <ion-item lines="full">
+      <ion-label position="floating">Profesor</ion-label>
+      <ion-input type="text" [(ngModel)]="asistencia.profesor"></ion-input>
+ </ion-item>  
+ <ion-item lines="full">
+  <ion-label position="floating" >Asignatura</ion-label>
+  <ion-input type="text" [(ngModel)]="asistencia.asignatura"></ion-input>
+</ion-item>   
+ </ion-card-content> 
+  <ion-row>
+    <ion-col>
+      <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
+      <ion-button expand="full" (click)="registrarAsistencia()">Enviar</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+

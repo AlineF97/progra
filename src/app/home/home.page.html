@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>RegistrApp</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div id="header">
+    <img src="../assets/img/logo.png">
+    
+</div>
+  <ion-card>
+    
+    <ion-card-header class="ion-no-border" >
+      <h2>Inicio de sesión</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="full">
+        <ion-label position="floating">Usuario</ion-label>
+        <!-- Usamos ngModel para indicarle al input el objeto a utilizar-->
+        <ion-input type="text" [(ngModel)]="user.usuario"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <!-- Usamos ngModel para indicarle al input el objeto a utilizar-->
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+      <ion-row>
+         <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
+        <ion-col>
+         
+          <ion-button expand="block" (click)="ingresar()">Ingresar</ion-button>
+        </ion-col>
+        <ion-col>
+          <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
+          <ion-button expand= "block" routerLink="./restablecer" routerDirection="forward">Restablecer contraseña</ion-button> 
+        </ion-col>
+        <ion-col>
+          <!-- Indicamos mediante el (click) la funcion a quien referenciara-->
+          <ion-button expand= "block" routerLink="./registra-usuario" routerDirection="forward">Registrar usuario</ion-button> 
+        </ion-col>
+
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
+
